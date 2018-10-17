@@ -8,7 +8,8 @@
 * considering flask as a python framework
 
 17/10/18
-* set up continuous integration system
+* set up continuous integration system:
+[CI setup notes](CISetupNotes.md)
 * consider bootstrap, chart.js
 * planning design for front end
 * contacted kacper for spec

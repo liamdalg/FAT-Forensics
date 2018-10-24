@@ -7,3 +7,5 @@
 * [Install Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
 * [Setup an SSL Certificate](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04)
 * [Configure Nginx for Jenkins](https://www.digitalocean.com/community/tutorials/how-to-configure-jenkins-with-ssl-using-an-nginx-reverse-proxy-on-ubuntu-18-04)
+
+* [Use Python Jenkins Template](https://github.com/bobuss/python-jenkins-template)

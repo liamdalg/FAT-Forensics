@@ -16,3 +16,10 @@
 * create workflow chart
 * create local host to start implementation
 * start creation of website skeleton
+
+22/10/18
+* present website ui ideas
+* progres on css
+
+24/10/18
+* meeting with kacper for spec

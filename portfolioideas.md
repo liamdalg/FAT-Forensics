@@ -16,3 +16,10 @@
 * create workflow chart
 * create local host to start implementation
 * start creation of website skeleton
+
+29/10/18
+* concrete web design mockup
+* solidified technologies:
+[Technologies](Technologies.md)
+* discussed final design
+* github split discussion

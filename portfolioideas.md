@@ -30,3 +30,6 @@
 [Technologies](Technologies.md)
 * discussed final design
 * github split discussion
+
+31/10/18
+* start implementation of dataset representation and ui

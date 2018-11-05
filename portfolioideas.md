@@ -33,3 +33,9 @@
 
 31/10/18
 * start implementation of dataset representation and ui
+
+05/11/18
+* navigation system in ui
+* node graph demo in ui
+* home screen demonstrated (need to use flask to implement)
+* need to see kacper about getting server and ask for colour scheme

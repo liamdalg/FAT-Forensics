@@ -5,64 +5,77 @@ Our client would like to work with us to investigates the Fairness, Accountabili
 
 Our goal is to democratise assessing social aspects and potentially detrimental effects of predictive models by providing an open source Python package licensed under BSD3 with easy to use Application Programming Interface (API) and minimal dependencies (SciPy and Numpy). The package is intended to be easily integrable with scikit-learn: the most popular and leading open source Python package for doing ML. With the abundance of novel FAT methods, a common open source framework could lower the entry barrier to this research field. Just like scikit-learn allows non-experts to fiddle around with state-of-the-art ML algorithms, we hope that the software framework that is the outcome of our research could allow a broader AI community and lay ML users to test and evaluate their algorithms for security issues, biases, discriminations and unexpected behaviour.
 
-Our key problem is that this is a back- and front-ends package and we have to work alongside AI and ML to create a user-facing interface that can potentially impact how research in AI fairness, accountability and transparency is done. After further discussion, we concluded to.....
+Our key problem is that poorly informed AI system through lack of data can negatively impact the reliability of AI functions. Our tool should be used to represent and analyse these impacts and apply functions on given datasets to try and create more reliable results.
 # Requirements
-Stakeholders: 
 
-The foremost stakeholders are the academic researchers, ML enthusiasts and developers who will use it to easily assess and investigate social aspect of their predictive models.
+##Stakeholders:
 
+When creating a research tool of this type, it is very important to keep our stakeholders in mind. Our users' experience with the product must be seamless and straight-forward as misinterpreting the data recieved may have severe knock-on effects to future research or development of a product. This could then negatively impact the consumers of products affected by research using our tool.
+As well as this we must take into account investor and future development of our tool so we must create clean and efficient code that is understandable and logically neat.
 
-#Functional Requirements
-The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models.
+### Developers
 
-1. Researchers should be able to upload their own datasets from a folder.
-2. Researchers should be able to create a new file and implement dataset.
-3. Researchers should be able to write a name, id and description for the data
-4. Researchers should be able to add and delete any data.
-5. The system should be able to load datasets into database and retrieve existing datasets.
-6. The system should be able to display and compare data points and generate metrics which evaluate ML fairness, accountability, transparency metrics and provide interactive plots
-7. The system should be able to export reports into PDFs.
-8. There should be some guides on the interface so user can understand how to use our website and what can each button do.
-9.
-10.
-11.
-12.
+it is of upmost importance that if a developer plans to release a feature than recognises patterns in human interaction that the results are consistent across any one person that is using. For example a facial recogistion app - if the app is unreliable for users of particular races then it could heavily hinder the trust put in the product by its consumers and give the company a bad name.
 
+### Consumers of Minority Groups
 
+When creating ai features, companies usually use more the more abundant subculture of the area. this can lead to inaccurate results for people of the minorities that are not rfairly represented in the machine learningdatasets. this would quite frankly be an insult to a person who has invested their money into a product.
 
-#Non-Functional Requirements
+### Investors and Future Developers
 
-It should have a user-friendly interface. Google have released a plugin called "what-if tool", for their TensorFlow visualisation framework called TensorBoard. It is similar with our project but it has a limitation of interacting only with TensorFlow models. We want to have larger audience and higher impact so we are making our project clear to use and the overall design should be simple but professional.
+We must create a clean work environment in effort to make the investors of Anthopometrics pleased with their invesment and want to keep backing the research of our client. This is also important to accommodate for future development on our product after we have finished.
 
-Since we have lots of graphs and data appear on our interface and our user would mainly choose to use a tablet for this, we won't implement a smartphone version for the project.
+### Researchers
 
-The project should be able to be updated or changed to meet client's requirements.
+Researchers may wish to see the connetations of less informed ai systems based on the (lack of) information we give it. With data this intricate and complex, it can be very hard to understand and take useful information from it. This leaves the job to us to create a sophisticated way of representing the data for ease of use.
 
-The system can only be changed by the admins of the project and all the data must be kept safe so they are not suspected, or disputed.
+![Use Case Diagram](assets/Usecase_diagram.png)
 
-The size of the project cannot be too large because we don't want it to be super slow when we load data. We should compress and tidy our code to minimise loading time.
+##Functional Requirements
+
+The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models. To help with this, we must comply to the following functional requirements:
+
+- Ability to upload a dataset.
+- Ability to load previously saved datasets.
+- Ability to perform function on dataset from given pythn package to create new, altered dataset.
+- Ability to name altered dataset along with a description.
+- Ability to revert to older versions of said dataset without deleting later versions.
+- Ability to view models and predictions based on current chosen dataset.
+- Ability to manupulate graph views to see more details on area of interest.
+- Ability to enter "inspector view" where it is possibble to compare datasets and view fairness analytics based on data in set after functions applied along with comparisons with other sets.
+- Ability to export reports into pdf files.
+- On screen guidance and logically organise for ease of use and readability.
+- Ability to save datasets.
+
+##Non-Functional Requirements
+
+- It should have a user-friendly interface. Google have released a plugin called "what-if tool", for their TensorFlow visualisation framework called TensorBoard. It is similar with our project but it has a limitation of interacting only with TensorFlow models. We want to have larger audience and higher impact so we are making our project clear to use and the overall design should be simple but professional. This is the goal that we believe to be most paramount as we must ensure that researchers can use our product efficiently and easily to eliminate mistakes when handling important data, and that it is a more useful experience than the "what-if" tool.
+- Since we have lots of graphs and data appear on our interface and our user would mainly choose to use a tablet for this, we won't implement a smartphone version for the project.
+- The project should be able to be updated or changed to meet client's requirements.
+- The system can only be changed by the admins of the project and all the data must be kept safe so they are not suspected, or disputed.
+- The size of the project cannot be too large because we don't want it to be super slow when we load data. We should compress and tidy our code to minimise loading time.
 # OO Design & UML
 
 ## High-Level
 
+Fill me in!
+
+## Flask & Python
+
+The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.
+
+For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, and does not provide extensive functionality. Therefore, Flask alone is not suitable for deployment, so we needed to also use **gunicorn** on Heroku to act as a WSGI server for Flask.
+
+**Django** is another alternative that we considered, but we felt that it was:
+
+* Too bulky (compared to **Flask** being a lot more lightweight), our actual website isn't that large so we don't need a full stack solution.
+* Too much to learn. **Flask** is small and 'one-use'. We make up for the lack of full-stack support by using **Flask** extensions (e.g. **Flask-SQLAlchemy**).
+
 ## Database
 
-> Why not SQLite/any other alternative?
+We use **PostgreSQL** for our database - Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes **SQLite** unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
 
-Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes SQLite unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
-
-In addition, Heroku also has great support for Postgres.
-
-## ORM
-
-## Flask
-
-- lightweight
-- don't want full stack
-- use extensions for precisely what we want
-- our actual website isn't large
-- lot to learn - flask easier
-- no bogging down
+In addition, Heroku also has great support for **PostgreSQL**.
 
 ## ORM
 
@@ -92,12 +105,15 @@ Our graphs are powered by **Cytoscape.js**, a frontend library for generating gr
 * Automatic layouts, meaning we don't have do manually define the position of each node.
 * Customisable events on each part of the graph.
 
-Cytoscape renders on the frontend using a HTML canvas, which does mean that we rely on the library either being lightweight or the user having sufficient hardware to run it. Since the tool is research-oriented, our client told us to only target the desktop platform and ignore mobile/tablet users, which means that most if not all of our users can run Cytoscape. We tested other libraries such as **Sigma.js**, but found that it both runs worse than Cytoscape and lends itself more to densely connected networks rather than a directed graph structure. 
+Cytoscape renders on the frontend using a HTML canvas, which does mean that we rely on the library either being lightweight or the user having sufficient hardware to run it. Since the tool is research-oriented, our client told us to only target the desktop platform and ignore mobile/tablet users, which means that most if not all of our users can run Cytoscape. 
+
+We tested other libraries such as **Sigma.js**, but found that it both runs worse than Cytoscape and lends itself more to densely connected networks rather than a directed graph structure. **D3** was also an option, but we found that D3 is much more generic than Cytoscape and, like Sigma.js, better for dense networks.
 
 Unfortunately, Cytoscape is a large library (1MB+ including other extensions) which could negatively affect the load times of the page. In 2016, the average website had an average script size of 357kb<sup>2</sup>, so we plan to reduce the size of our scripts by using compression and a build tool to bundle the scripts together. 
 
 ## References
 1. https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem
+2. https://www.keycdn.com/support/the-growth-of-web-page-size
 # Testing
 
 ## Backend

@@ -23,7 +23,7 @@ In addition, Heroku also has great support for **PostgreSQL**.
 
 ## ORM
 
-We decied to use an ORM because they manage the SQL driver for us, which means that we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with Flask in a package called **Flask-SQLAlchemy**.
+We decied to use an ORM because they manage the SQL driver for us, so we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with Flask in a package called **Flask-SQLAlchemy**.
 
 For example, here's the model which represents the **Graph** table in the database:
 ```python
@@ -46,10 +46,10 @@ Our graphs are powered by **Cytoscape.js**, a frontend library for generating gr
 * Cross-platform using HTML canvas.
 * Native exporting to JSON so the user can save or download the graph.
 * Large extension pool and easily modifiable.
-* Automatic layouts, meaning we don't have do manually define the position of each node.
+* Automatic layouts which position nodes in a preset structure.
 * Customisable events on each part of the graph.
 
-Cytoscape renders on the frontend using a HTML canvas, which does mean that we rely on the library either being lightweight or the user having sufficient hardware to run it. Since the tool is research-oriented, our client told us to only target the desktop platform and ignore mobile/tablet users, which means that most if not all of our users can run Cytoscape. 
+Cytoscape renders on the frontend using a HTML canvas, which puts more pressure on the user's device, especially with incredibly large graphs. Since the tool is research-oriented, our client told us to only target the desktops and ignore mobile/tablet users. Therefore, most users will have no problem running the tool.
 
 We tested other libraries such as **Sigma.js**, but found that it both runs worse than Cytoscape and lends itself more to densely connected networks rather than a directed graph structure. **D3** was also an option, but we found that D3 is much more generic than Cytoscape and, like Sigma.js, better for dense networks.
 

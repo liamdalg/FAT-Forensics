@@ -8,7 +8,7 @@ Our goal is to democratise assessing social aspects and potentially detrimental 
 Our key problem is that poorly informed AI system through lack of data can negatively impact the reliability of AI functions. Our tool should be used to represent and analyse these impacts and apply functions on given datasets to try and create more reliable results.
 # Requirements
 
-##Stakeholders:
+## Stakeholders:
 
 When creating a research tool of this type, it is very important to keep our stakeholders in mind. Our users' experience with the product must be seamless and straight-forward as misinterpreting the data recieved may have severe knock-on effects to future research or development of a product. This could then negatively impact the consumers of products affected by research using our tool.
 As well as this we must take into account investor and future development of our tool so we must create clean and efficient code that is understandable and logically neat.
@@ -31,7 +31,7 @@ Researchers may wish to see the connetations of less informed ai systems based o
 
 ![Use Case Diagram](assets/Usecase_diagram.png)
 
-##Functional Requirements
+## Functional Requirements
 
 The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models. To help with this, we must comply to the following functional requirements:
 
@@ -47,7 +47,7 @@ The goal of the project is for researchers to easily assess and investigate soci
 - On screen guidance and logically organise for ease of use and readability.
 - Ability to save datasets.
 
-##Non-Functional Requirements
+## Non-Functional Requirements
 
 - It should have a user-friendly interface. Google have released a plugin called "what-if tool", for their TensorFlow visualisation framework called TensorBoard. It is similar with our project but it has a limitation of interacting only with TensorFlow models. We want to have larger audience and higher impact so we are making our project clear to use and the overall design should be simple but professional. This is the goal that we believe to be most paramount as we must ensure that researchers can use our product efficiently and easily to eliminate mistakes when handling important data, and that it is a more useful experience than the "what-if" tool.
 - Since we have lots of graphs and data appear on our interface and our user would mainly choose to use a tablet for this, we won't implement a smartphone version for the project.

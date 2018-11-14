@@ -1,11 +1,31 @@
 # Requirements
-Stakeholders: 
 
-The foremost stakeholders are the academic researchers, ML enthusiasts and developers who will use it to easily assess and investigate social aspect of their predictive models.
+##Stakeholders:
 
+When creating a research tool of this type, it is very important to keep our stakeholders in mind. Our users' experience with the product must be seamless and straight-forward as misinterpreting the data recieved may have severe knock-on effects to future research or development of a product. This could then negatively impact the consumers of products affected by research using our tool.
+As well as this we must take into account investor and future development of our tool so we must create clean and efficient code that is understandable and logically neat.
 
-#Functional Requirements
-The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models.
+### Developers
+
+it is of upmost importance that if a developer plans to release a feature than recognises patterns in human interaction that the results are consistent across any one person that is using. For example a facial recogistion app - if the app is unreliable for users of particular races then it could heavily hinder the trust put in the product by its consumers and give the company a bad name.
+
+### Consumers of Minority Groups
+
+When creating ai features, companies usually use more the more abundant subculture of the area. this can lead to inaccurate results for people of the minorities that are not rfairly represented in the machine learningdatasets. this would quite frankly be an insult to a person who has invested their money into a product.
+
+### Investors and Future Developers
+
+We must create a clean work environment in effort to make the investors of Anthopometrics pleased with their invesment and want to keep backing the research of our client. This is also important to accommodate for future development on our product after we have finished.
+
+### Researchers
+
+Researchers may wish to see the connetations of less informed ai systems based on the (lack of) information we give it. With data this intricate and complex, it can be very hard to understand and take useful information from it. This leaves the job to us to create a sophisticated way of representing the data for ease of use.
+
+![Use Case Diagram](assets/Usecase_diagram.png)
+
+##Functional Requirements
+
+The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models. To help with this, we must comply to the following functional requirements:
 
 1. Researchers should be able to upload their own datasets from a folder.
 2. Researchers should be able to create a new file and implement dataset.
@@ -15,14 +35,8 @@ The goal of the project is for researchers to easily assess and investigate soci
 6. The system should be able to display and compare data points and generate metrics which evaluate ML fairness, accountability, transparency metrics and provide interactive plots
 7. The system should be able to export reports into PDFs.
 8. There should be some guides on the interface so user can understand how to use our website and what can each button do.
-9.
-10.
-11.
-12.
 
-
-
-#Non-Functional Requirements
+##Non-Functional Requirements
 
 It should have a user-friendly interface. Google have released a plugin called "what-if tool", for their TensorFlow visualisation framework called TensorBoard. It is similar with our project but it has a limitation of interacting only with TensorFlow models. We want to have larger audience and higher impact so we are making our project clear to use and the overall design should be simple but professional.
 

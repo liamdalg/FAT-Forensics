@@ -2,8 +2,24 @@
 
 ## High-Level
 
+## Database
+
+> Why not SQLite/any other alternative?
+
+Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes SQLite unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
+
+In addition, Heroku also has great support for Postgres.
+
+## ORM
+
 ## Flask
-* Why not django
+
+- lightweight
+- don't want full stack
+- use extensions for precisely what we want
+- our actual website isn't large
+- lot to learn - flask easier
+- no bogging down
 
 ## ORM
 
@@ -37,6 +53,5 @@ Cytoscape renders on the frontend using a HTML canvas, which does mean that we r
 
 Unfortunately, Cytoscape is a large library (1MB+ including other extensions) which could negatively affect the load times of the page. In 2016, the average website had an average script size of 357kb<sup>2</sup>, so we plan to reduce the size of our scripts by using compression and a build tool to bundle the scripts together. 
 
-## Database
-* why not SQLite??
-* - go on heroku
+## References
+1. https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem

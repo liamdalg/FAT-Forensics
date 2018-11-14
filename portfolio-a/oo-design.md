@@ -2,24 +2,22 @@
 
 ## High-Level
 
+Fill me in!
+
 ## Database
 
-> Why not SQLite/any other alternative?
+We use **PostgreSQL** for our database - Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes **SQLite** unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
 
-Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes SQLite unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
-
-In addition, Heroku also has great support for Postgres.
-
-## ORM
+In addition, Heroku also has great support for **PostgreSQL**.
 
 ## Flask
 
-- lightweight
-- don't want full stack
-- use extensions for precisely what we want
-- our actual website isn't large
-- lot to learn - flask easier
-- no bogging down
+For our RESTful API framework we decided to use **Flask**, which uses Python. Python works well for us because the library our client is giving us is written in Python; if we used Java, for example, we'd have to write all the bindings for it which could take some time.
+
+**Django** is another alternative that we considered, but we felt that it was:
+
+* Too bulky (compared to **Flask** being a lot more lightweight), our actual website isn't that large so we don't need a full stack solution
+* Too much to learn. **Flask** is small and 'one-use'. We make up for the lack of full-stack support by using **Flask** extensions (i.e. **Flask-SQLAlchemy**).
 
 ## ORM
 
@@ -55,3 +53,4 @@ Unfortunately, Cytoscape is a large library (1MB+ including other extensions) wh
 
 ## References
 1. https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem
+2. https://www.keycdn.com/support/the-growth-of-web-page-size

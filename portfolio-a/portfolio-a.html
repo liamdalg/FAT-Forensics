@@ -53,6 +53,52 @@ The goal of the project is for researchers to easily assess and investigate soci
 <p>The system can only be changed by the admins of the project and all the data must be kept safe so they are not suspected, or disputed.</p>
 <p>The size of the project cannot be too large because we don't want it to be super slow when we load data. We should compress and tidy our code to minimise loading time.</p>
 <h1 id="oo-design--uml">OO Design &amp; UML</h1>
+<h2 id="high-level">High-Level</h2>
+<h2 id="database">Database</h2>
+<blockquote>
+<p>Why not SQLite/any other alternative?</p>
+</blockquote>
+<p>Heroku uses an <em>ephemeral filesystem</em><sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes SQLite unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.</p>
+<p>In addition, Heroku also has great support for Postgres.</p>
+<h2 id="orm">ORM</h2>
+<h2 id="flask">Flask</h2>
+<ul>
+<li>lightweight</li>
+<li>don't want full stack</li>
+<li>use extensions for precisely what we want</li>
+<li>our actual website isn't large</li>
+<li>lot to learn - flask easier</li>
+<li>no bogging down</li>
+</ul>
+<h2 id="orm-1">ORM</h2>
+<p>We decied to use an ORM because they manage the SQL driver for us, which means that we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose <strong>SQLAlchemy</strong> over other ORMs since it has a nice binding with Flask in a package called <strong>Flask-SQLAlchemy</strong>.</p>
+<p>For example, here's the model which represents the <strong>Graph</strong> table in the database:</p>
+<pre><code class="language-python"><div><span class="hljs-comment"># models.py</span>
+
+db = SQLAlchemy()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Graph</span><span class="hljs-params">(db.Model)</span>:</span>
+    graph_id = db.Column(db.Integer, primary_key=<span class="hljs-keyword">True</span>)
+    type = db.Column(db.Integer, nullable=<span class="hljs-keyword">False</span>)
+    name = db.Column(db.String, nullable=<span class="hljs-keyword">False</span>)
+    dataset = db.Column(db.Integer, db.ForeignKey(<span class="hljs-string">'dataset.dataset_id'</span>))
+    data = db.Column(db.JSON, nullable=<span class="hljs-keyword">False</span>)
+</div></code></pre>
+<h2 id="graph-library">Graph Library</h2>
+<p>Our graphs are powered by <strong>Cytoscape.js</strong>, a frontend library for generating graph networks. Cytoscape boasts great features such as:</p>
+<ul>
+<li>Cross-platform using HTML canvas.</li>
+<li>Native exporting to JSON so the user can save or download the graph.</li>
+<li>Large extension pool and easily modifiable.</li>
+<li>Automatic layouts, meaning we don't have do manually define the position of each node.</li>
+<li>Customisable events on each part of the graph.</li>
+</ul>
+<p>Cytoscape renders on the frontend using a HTML canvas, which does mean that we rely on the library either being lightweight or the user having sufficient hardware to run it. Since the tool is research-oriented, our client told us to only target the desktop platform and ignore mobile/tablet users, which means that most if not all of our users can run Cytoscape. We tested other libraries such as <strong>Sigma.js</strong>, but found that it both runs worse than Cytoscape and lends itself more to densely connected networks rather than a directed graph structure.</p>
+<p>Unfortunately, Cytoscape is a large library (1MB+ including other extensions) which could negatively affect the load times of the page. In 2016, the average website had an average script size of 357kb<sup>2</sup>, so we plan to reduce the size of our scripts by using compression and a build tool to bundle the scripts together.</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem">https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem</a></li>
+</ol>
 <h1 id="testing">Testing</h1>
 <h2 id="backend">Backend</h2>
 <p>Our backend runs <strong>Flask</strong>, which uses Python. To test this, we use:</p>

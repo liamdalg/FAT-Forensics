@@ -58,28 +58,30 @@ The goal of the project is for researchers to easily assess and investigate soci
 
 ## High-Level
 
-Fill me in!
+![High Level Diagram](assets/high-level-diagram.png)
+
+## UML Examples
 
 ## Flask & Python
 
 The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.
 
-For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, and does not provide extensive functionality. Therefore, Flask alone is not suitable for deployment, so we needed to also use **gunicorn** on Heroku to act as a WSGI server for Flask.
-
-**Django** is another alternative that we considered, but we felt that it was:
+For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, but does not provide extensive functionality. **Django** is another alternative that we considered, but we felt that it was:
 
 * Too bulky (compared to **Flask** being a lot more lightweight), our actual website isn't that large so we don't need a full stack solution.
 * Too much to learn. **Flask** is small and 'one-use'. We make up for the lack of full-stack support by using **Flask** extensions (e.g. **Flask-SQLAlchemy**).
 
+Flask's default HTTP server runs on **Werkzeug**; a fine choice for development, but it is not efficient enough at large scales in production. Two popular alternative choices are **NGINX** and **gunicorn** (sometimes even both together). Flask and gunicorn are **WSGI** (Web Server Gateway Interface) compliant, while **NGINX** is not - therefore, we chose to use **gunicorn** to invoke our Flask application. 
+
 ## Database
 
-We use **PostgreSQL** for our database - Heroku uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes **SQLite** unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
+We use **PostgreSQL** for our database - **Heroku** uses an *ephemeral filesystem*<sup>1</sup> (i.e. any files written are deleted the moment the dyno is stopped/restarted). This makes **SQLite** unsuitable as it works on memory and you'd lose your database every 24 hours or so, as opposed to Postgres which works over multiple dynos.
 
 In addition, Heroku also has great support for **PostgreSQL**.
 
 ## ORM
 
-We decied to use an ORM because they manage the SQL driver for us, so we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with Flask in a package called **Flask-SQLAlchemy**.
+We decied to use an ORM because they manage the SQL driver for us, so we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with **Flask** in a package called **Flask-SQLAlchemy**.
 
 For example, here's the model which represents the **Graph** table in the database:
 ```python

@@ -6,6 +6,16 @@
 
 ## UML Examples
 
+Static Example: the models **Dataset** and **Graph**:
+
+<div align="center">
+    
+![Static UML Example](assets/static-uml.png)
+
+</div>
+
+The structure of each graph represents how a dataset is transformed by functions beginning from the root: each node represents the current state of the dataset following a transformation. A graph can only represent exactly **one** dataset, so the relationship between **Dataset** and **Graph** is one-to-many.
+
 ## Flask & Python
 
 The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.

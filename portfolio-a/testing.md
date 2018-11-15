@@ -15,7 +15,7 @@ The frontend is mostly **JS**. There are a few aspects which we can test:
 
 We run **Selenium** on CircleCI to test the usability of the site - it can simulate button activations.
 
-Using **Jest**, we write some unit tests for the graph library we use, **INSERT**. These verify that basic functionality works (i.e. adding/deleting nodes).
+Using **Jest**, we write some unit tests for the graph library we use, **Cytoscape**. These verify that basic functionality works (i.e. adding/deleting nodes).
 
 We could test how the site looks, but we decided against it since changes to the UI are often and sometimes very slight, making it difficult to keep the tests current.
 
@@ -33,8 +33,3 @@ This assures us that our code works on more than just one machine.
 ### Why CircleCI?
 
 We looked at different methods of CI and decided on CircleCI because of its **ease of use** and **speed of setup**. We found that **Jenkins** took a lot of setup, including hosting it on our own server, wheras with CircleCI we can operate cloud-based on their servers. **TravisCI** was another contender but ultimately we wanted the ability to deploy our site to Heroku all in one platform.
-
-TODO:
-
-[] Integration tests?
-[] Change tense?

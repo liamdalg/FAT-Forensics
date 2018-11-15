@@ -1,5 +1,6 @@
 # Overview
-The core FAT package was developed by researchers at the University of Bristol, with sponsorship from Thales UK. 
+
+The core FAT package was developed by researchers at the University of Bristol, with sponsorship from Thales UK.
 
 Our client would like to work with us to investigates the Fairness, Accountability, and Transparency (FAT) of predictive algorithms. This is the front and back end for a web application which will connect to FAT. It can load datasets into a database, retrieve existing datasets, display and compare data points, generate metrics which evaluate ML fairness, accountability, and transparency metrics, provide interactive plots, and export these reports into PDFs.
 

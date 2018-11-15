@@ -25,7 +25,9 @@ Researchers may wish to see the connetations of less informed ai systems based o
 
 ## Functional Requirements
 
-The goal of the project is for researchers to easily assess and investigate social aspect of their predictive models. To help with this, we must comply to the following functional requirements:
+Our tool must be able to manipulate and represent a lot of data in a lot of ways. This needs to be done intuitively to be most effective. Our tool starts with with a node graph. When a dataset has been loaded, this is represented as a node on the graph. The arrows between nodes represent functions applied to the dataset to create new nodes on the graph. For each node on the graph, it is possible to view representations of this dataset. you can view models which display how given AI functions work based on the data that they're fed, and then a prediction view which runs said AI on hypothetical data. Then, for each of these views we can show analytic reports centered on the fairness, accountability, and transparency of how the AI behaved in these circumstances with the modified data that was given to it.
+
+This is quite a lot to keep in mind, so we must follow the following requirements to make our product solid, reliable and seamless:
 
 - Ability to upload a dataset.
 - Ability to load previously saved datasets.
@@ -41,8 +43,12 @@ The goal of the project is for researchers to easily assess and investigate soci
 
 ## Non-Functional Requirements
 
+This tool is heavily based on research, so it must be able to be easy to use, be able to be updated and improved upon continuously by future developers, be able to handle large amounts of data, and have an intuitive workflow
+
+These are some of the most important standards for our system to uphold:
+
 - It should have a user-friendly interface. Google have released a plugin called "what-if tool", for their TensorFlow visualisation framework called TensorBoard. It is similar with our project but it has a limitation of interacting only with TensorFlow models. We want to have larger audience and higher impact so we are making our project clear to use and the overall design should be simple but professional. This is the goal that we believe to be most paramount as we must ensure that researchers can use our product efficiently and easily to eliminate mistakes when handling important data, and that it is a more useful experience than the "what-if" tool.
-- Since we have lots of graphs and data appear on our interface and our user would mainly choose to use a tablet for this, we won't implement a smartphone version for the project.
+- Since we have lots of graphs and data appear on our interface and our user would mainly choose to use a PC for this, we won't implement a smartphone version for the project.
 - The project should be able to be updated or changed to meet client's requirements.
 - The system can only be changed by the admins of the project and all the data must be kept safe so they are not suspected, or disputed.
 - The size of the project cannot be too large because we don't want it to be super slow when we load data. We should compress and tidy our code to minimise loading time.

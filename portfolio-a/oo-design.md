@@ -32,7 +32,7 @@ The graph could be eagerly evaluated, i.e. evaluated as the user continues to ad
 
 ## Flask & Python
 
-The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.
+The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unnecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.
 
 For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, but does not provide extensive functionality. **Django** is another alternative that we considered, but we felt that it was:
 
@@ -49,7 +49,7 @@ In addition, Heroku also has great support for **PostgreSQL**.
 
 ## ORM
 
-We decied to use an ORM because they manage the SQL driver for us, so we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with **Flask** in a package called **Flask-SQLAlchemy**.
+We decided to use an ORM because they manage the SQL driver for us, so we don't need to deal with driver specific syntax and types. Using an ORM also means that we don't have to write any SQL, making our system more secure, and there's a one-to-one mapping between the data in our program and the data stored in the database. We chose **SQLAlchemy** over other ORMs since it has a nice binding with **Flask** in a package called **Flask-SQLAlchemy**.
 
 For example, here's the model which represents the **Graph** table in the database:
 ```python

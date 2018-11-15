@@ -16,6 +16,20 @@ Static Example: the models **Dataset** and **Graph**:
 
 The structure of each graph represents how a dataset is transformed by functions beginning from the root: each node represents the current state of the dataset following a transformation. A graph can only represent exactly **one** dataset, so the relationship between **Dataset** and **Graph** is one-to-many.
 
+A design choice we made is that the frontend *does not* store the dataset at all, and transformations are applied on the back end. This is why the Graph is represented merely using JSON and a reference to the dataset. If we chose to store the dataset alongside the graph, graphs would become extremely heavy (some datasets are thousands of datapoints long), and lots of data would be repeated.
+
+Dynamic Example: computing the transformed datasets from a graph:
+
+<div align="center">
+
+![Dynamic UML Example](assets/dynamic-uml.png)
+
+</div>
+
+Each edge in the graph represents a transformation on the dataset, but it needs to be converted from the frontend representation to a concrete Python object. The frontend graph is traversed starting from the root node, and each function is applied to the dataset to produce a new node. This process is repeated until the whole frontend graph is transformed into a Python object, complete with transformed datasets. If at any point the computation fails (e.g. if two computations are not compatible with each other), then computation stops and the user is informed.
+
+The graph could be eagerly evaluated, i.e. evaluated as the user continues to add nodes, which would allow for responsive feedback on whether the computation is valid. However, it would result in redundant computation, especially if the user has not completed their graph structure. Therefore, we opted for a 'compute' button so that the graph is only evaluated when the user wants.
+
 ## Flask & Python
 
 The core package which the client is giving us is written in Python, so we chose to use Python for our backend instead of Java. If we used Java we'd have to write all the bindings for the package which could take some time and add unecessary complexity to the task. Our client also said that they would like us to use Python over Java as they are more familiar with programming in Python.

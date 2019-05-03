@@ -4,10 +4,7 @@
 
 ![High-level Diagram](images/oo_hilevel.png)
 
-For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, but does not provide extensive functionality. **Django** is another alternative that we considered, but we felt that it was:
-
-* Too bulky (compared to **Flask** being a lot more lightweight), our actual website isn't that large so we don't need a full stack solution.
-* Too much to learn. **Flask** is small and 'one-use'. We make up for the lack of full-stack support by using **Flask** extensions
+For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, but does not provide extensive functionality. **Django** is another alternative that we considered, but it's use-case its for highly database driven websites. Flask is much smaller scale, and we can make up for any lack of functionality by using extensions.
 
 Flask's default HTTP server runs on **Werkzeug**; a fine choice for development, but it is not efficient enough at large scales in production. Two popular alternative choices are **NGINX** and **gunicorn** (sometimes even both together). Flask and gunicorn are **WSGI** (Web Server Gateway Interface) compliant, while **NGINX** is not - therefore, we chose to use **gunicorn** to invoke our Flask application. 
 

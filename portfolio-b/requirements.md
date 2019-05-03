@@ -23,7 +23,7 @@ Our task is to build a very specialist tool, to be used predominantly by experts
 
 ## High Level Use-case Diagram
 
-![Use Case Diagram](images/User_case_diagram.png) 
+![Use Case Diagram](images/req_use_case.png) 
 
 ## Use-cases
 

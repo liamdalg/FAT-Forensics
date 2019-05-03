@@ -4,35 +4,26 @@
 
 ![High-level Diagram](images/oo_hilevel.png)
 
-* Relevant external systems
-* Explanation of components
+For our RESTful API framework we decided to use **Flask**. Flask is a 'microframework', which means that it is very lightweight and easy to use, but does not provide extensive functionality. **Django** is another alternative that we considered, but we felt that it was:
+
+* Too bulky (compared to **Flask** being a lot more lightweight), our actual website isn't that large so we don't need a full stack solution.
+* Too much to learn. **Flask** is small and 'one-use'. We make up for the lack of full-stack support by using **Flask** extensions
+
+Flask's default HTTP server runs on **Werkzeug**; a fine choice for development, but it is not efficient enough at large scales in production. Two popular alternative choices are **NGINX** and **gunicorn** (sometimes even both together). Flask and gunicorn are **WSGI** (Web Server Gateway Interface) compliant, while **NGINX** is not - therefore, we chose to use **gunicorn** to invoke our Flask application. 
+
+We used React because a team member already had experience with it, and it allows us to develop stateful, reusable components. The graph is rendered using D3 and a third-party package which combines React and D3; this was required because D3 and React have conflicting ways of manipulating the DOM. To compile the frontend code, we used Babel + Webpack which allowed us to use modern Javascript (ES6) features without worrying about compatibility issues.
 
 ## Static UML Model
 
 ![Static UML Model](images/oo_static.png)
 
-We need to pass data between the front-end and back-end and be able to manipulate it on both sides. D3 stores the data in a pure dictionary format (nodes and their links) - we needed to decide if it was best to work directly on the D3 format or another format.
+We need to pass data between the front-end and back-end and be able to manipulate it on both sides. D3 stores the data in a pure dictionary format (nodes and their links) - we had to decide if it was best to work directly on the D3 format or another format.
 
-We store trees
-Convert D3 graph to python format
-Instead of each time
-We convert the D3 graph to a Tree format and 
-Allows us to specify more specialist, reusable operations without simply a wrapper over the dictionary
+We convert the D3 dictionary into an internal structure called Tree. This allows us to implement more specialist, reusable operations instead of a wrapper over the dictionary. Since we convert the graph every time we receive it from the client, there is a performance loss. This could get very noticeable with larger graphs. However, it is much easier to traverse once converted (i.e. we can find a node quicker); working directly on the D3 dictionary would have been more difficult as it's in a strange format. 
 
-Performance loss; converting every time :(
-Since we convert the graph every time we receive it from the client, there is a performance loss. This could get very noticeable with larger graphs. However, it is easier to traverse once converted
+Converting the graph into a common format means we condense all the front-end dependency into one conversion function, allowing us to more easily swap out the front-end or update the conversion function with newer versions. Storing the data on the server (pickling) is also better since we can store the data/model/prediction **with** the tree; we would have to create a class to unify them somehow or store the files separately with a key which would not be as elegant.
 
-Pushes dependency away from Tree and to build tree function (needs to be aware of front-end)
-
-Converting the graph into a common format means we condense all the front-end dependency into one conversion function, allowing us to more easily swap out the front-end or update the conversion function with newer versions.
-
-Working directly on the D3 dictionary would have been more difficult as it's in a strange format; the Tree provides an easier way to deal with on Python's end (i.e. we can find a node easily).
-
-Pickling is also better
-
-Helps coupling with dataset - can execute and do more than a regular dict
-
-Helps to split up data
+Even though there is a speed trade-off in storing our data in a Tree, it enables our code to be more succinct and readable.
 
 ## Dynamic UML Model
 

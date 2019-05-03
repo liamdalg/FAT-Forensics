@@ -79,30 +79,33 @@ From here, the inspector tool will show, showing relevant information. This, sim
 
 The core functionality of FAT-Forensics, and by extension FAT-Inspector, is to evaluate the FAT of predictive algorithms. To view the FAT metrics, the user needs to access the inspector view; therefore, our main use-case for the tool is the the use of the inspector view.
 
-To achieve our primary use case scenario, we have implemented the relevant functional requirements.
+To achieve our primary use case scenario, we have implemented the relevant functional requirements:
 
-<h1 style="font-size: 500px">hello</h1>
-
-| Requirement                                                                                                                 | Rationale                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| The user must be able to upload a local dataset file.                                                                       | To calculate FAT metrics, the server must have access to the user's dataset.                             |
-| The user must be able to upload a local graph file.                                                                         | To have the ability to restore previous workflow at a later session                                      |
-| The user must be able to start a new graph with a dataset stored on the server.                                             | If the user doesn't have access to a graph, they should be able                                          |
-| The user must be able to add children to nodes which represent applying the FAT-Forensics transformations                   | To be able to fine tune their classifier and see how different transformations affect the FAT            |
-| The user must be able to execute the node graph, which will apply the functions inside of each node.                        | To make use of said transformations in inspection, model training, and prediction making                 |
-| The user must be able to edit the nodes on the graph by changing their name, description, and function.                     | To allow for users to make a mistake without heavily diverting workflow                                  |
-| The user must be able to alternate between different versions of datasets with different functions applied                  | This is crucial in comparing how manipulations affect the FAT of the classifier                          |
-| The user must be able to utilise the inspector tool on any node in the graphs                                               | This is the critical funtionality of the tool and is the user's sole source of FAT analytica             |
-| The user must be able to train a model and make predictions, using the FAT package, from data and model graphs respectively | To instantiate new graphs from node and further fine tune the classifier with help of the inspector tool |
-| The user must be able to save the state of their graph and export it for later use                                          | To allow for more user friendly and flexible workflow                                                    |
+| Requirement                                                                                                                 | Rationale                                                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| The user must be able to upload a local dataset file.                                                                       | To calculate FAT metrics, the server must have access to the user's dataset.                                           |
+| The user must be able to upload a local graph file.                                                                         | To have the ability to restore previous workflow at a later session                                                    |
+| The user must be able to start a new graph with a dataset stored on the server.                                             | If the user doesn't have access to a graph, they need to start from scratch.                                           |
+| The user must be able save an existing graph to the server.                                                                 | The server needs to have access to the most recent graph to access all nodes, without it the graph cannot be executed. |
+| The user must be able to add children to nodes which represent applying the FAT-Forensics transformations                   | To be able to fine tune their classifier and see how different transformations affect the FAT                          |
+| The user must be able to execute the node graph, which will apply the functions inside of each node.                        | To make use of said transformations in inspection, model training, and prediction making                               |
+| The user must be able to edit the nodes on the graph by changing their name, description, and function.                     | To allow for users to make a mistake without heavily diverting workflow                                                |
+| The user must be able to utilise the inspector tool on any node in the graph                                                | This is the critical funtionality of the tool and is the user's sole source of FAT analytica                           |
+| The data stored in each node must be preserved on applying the transformations.                                             | The user may be interested in comparing how the FAT changes when different functions are applied.                      |
+| The user must be able to train a model and make predictions, using the FAT package, from data and model graphs respectively | To instantiate new graphs from node and further fine tune the classifier with help of the inspector tool               |
+| The user must be able to save the state of their graph and export it for later use                                          | To allow for more user friendly and flexible workflow                                                                  |
 
 ## Non-functional Requirements
 
 These are some of the most important standards for our system to uphold:
 
-| Requirement                                                              | Rationale                                                                                                             |
-| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| It should have a user-friendly interface                                 | Ensure that researchers can use our product efficiently and easily to eliminate mistakes when handling important data |
-| It should be able to be updated or changed to meet client's requirements |
-| It should only be changed by the admins                                  | All the data must be kept safe so they are not suspected, or disputed                                                 |
-| Size of the project cannot be too large                                  | Avoid it to be slow when we load data                                                                                 |
+| Requirement                                                         | Rationale                                                                                                              |
+| ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| The back-end must be built in Python 3.                             | The client's package, FAT-Forensics, is built in Python 3, and our back-end would need to interact with it.            |
+| Python code shall be PEP8 compliant                                 | Our client's team enforces PEP8 on their code, and they will be continuing development of the product.                 |
+| The system should be a single user application                      | This is within the scope of our development, and were advised by our client to not extend the capability to multi user |
+| The system must be deployable on a web service such as Heroku, AWS. | System needs to be accessible by people without programming experience.                                                |
+| The system must be modifiable                                       | Future developers must be able to work on our system so we must comply with their choice of languages                  |
+| The system must be supported on Chrome (desktop)                    | This is our target platform and is the only platform necessary at this stage for our client                            |
+
+We have not had need for many functional requirements. This is due to this project being mostly about providing a strong foundation for development of this web app, meaning a lot of standard non-functional requirements such as security, accessibility, and serviceability are not relevant to us.

@@ -3,11 +3,11 @@
 Our backend is built with Python 3 and Flask, and to test these tools we used:
 
 * **Pytest**: a Python package used to create unit tests which test the core functionality.
-* **Werkzeug Test Client**: a client which ships with Flask to create integration tests which tests the Flask routes.
+* **Werkzeug Test Client**: a client which ships with Flask to create integration tests, which test the Flask routes.
 
 We opted for a **Test-Driven Development (TDD)** process when developing the backend. TDD ensures that components behave exactly as expected, even when the implementation of the components changes and evolves over time. It also provides a ‘sense of security’ - if our tests pass, then we can be confident that the backend is working as expected and the eliminate it as an issue source. Since the backend is critical for the success of our application, we felt that TDD was the best approach for ensuring stability.
 
-On the other hand, a shortcoming of our product is that we did not extensively test the frontend, since we had issues with developing tests. We encountered many hurdles during development, which was caused by our lack of understanding of the client’s field of research, and how it relates to the product we were required to build. Significant portions of the frontend were updated as our understanding of the product improved and we were able to refine and update the design. As a result, we found it difficult to employ a TDD philosophy since the tests would become redundant quickly. Instead, we opted to iteratively add to and refine our application as we went.  
+On the other hand, a shortcoming of our product is that we did not extensively test the frontend since we had issues with developing tests. We encountered many hurdles during development, which was caused by our lack of understanding of the client’s field of research, and how it relates to the product we were required to build. Significant portions of the frontend were updated as our understanding of the product improved and we were able to refine and update the design. As a result, we found it difficult to employ a TDD philosophy since the tests would become redundant quickly. Instead, we opted to iteratively add to and refine our application as we went.  
 
 ## Continuous Integration & Deployment
 
